@@ -1,1 +1,8 @@
-<%= image_tag course.upload %>
+<li>
+    <%= course.id %>
+    <%= course.name %>
+    <% course.course_uploads.each do |cu| %>
+        <%= image_tag cu.upload %>
+        <%= cu.course_id %>
+    <% end %>
+</li>

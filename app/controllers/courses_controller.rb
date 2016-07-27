@@ -1,6 +1,11 @@
 class CoursesController < ApplicationController
   def index
-  	@courses = Course.all
+  	@courses = Course.order(id: :desc)
+  end
+  
+  def new
+    @course = Course.new
+    @course_upload = @course.course_uploads.build
   end
 
   def create
@@ -16,6 +21,6 @@ class CoursesController < ApplicationController
   private
 
   	def course_params
-  		params.require(:course).permit(:name, :upload)
+  		params.require(:course).permit(:name, course_uploads_attributes: [:id, :upload, :base])
   	end
 end

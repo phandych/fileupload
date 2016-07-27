@@ -1,0 +1,10 @@
+<%= form_for @course, html: { multipart: true, id: "fileupload" } do |f| %>
+	<%= f.text_field :name %>
+	<%= f.fields_for :course_uploads do |builder| %>
+	    <%= render "course_upload", f: builder %>
+	<% end %>
+	
+	<%= f.submit "Create" %>
+	
+<% end %>
+

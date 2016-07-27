@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722064039) do
+ActiveRecord::Schema.define(version: 20160727084748) do
 
-  create_table "courses", force: :cascade do |t|
-    t.string   "name"
+  create_table "course_uploads", force: :cascade do |t|
     t.string   "upload_file_name"
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
+    t.boolean  "base"
+    t.integer  "course_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  add_index "course_uploads", ["course_id"], name: "index_course_uploads_on_course_id"
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
