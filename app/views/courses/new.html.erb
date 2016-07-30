@@ -7,7 +7,12 @@
 		    <%= render "course_upload", f: builder %>
 		<% end %>
 	</div>
-	<%= f.submit "Create" %>
+	<%= f.submit "Create", id: "submit-data" %>
 	
+	
+	<button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Start upload</span>
+                </button>
 <% end %>
 
